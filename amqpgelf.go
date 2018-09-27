@@ -33,7 +33,7 @@ type AmqpAdapter struct {
 }
 
 func NewAmqpAdapter(route *router.Route) (router.LogAdapter, error) {
-    address := route.Address
+    address := getenv("AMQP_Address", "docker")
 
 	// get our config value from the environment
     key := getenv("AMQP_ROUTING_KEY", "docker")
